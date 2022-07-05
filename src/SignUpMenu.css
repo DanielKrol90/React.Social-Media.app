@@ -6,7 +6,7 @@
     width: 300px;
     position: absolute;
     left: 45%;
-    bottom: 25%;
+    bottom: 30%;
     border: 5px solid rgba(255, 255, 255, 0.829);
 }
 
@@ -27,4 +27,44 @@ input[type="submit"] {
 
 input:hover {
     background-color: rgb(163, 224, 250);
+}
+
+.valid {
+    color: green;
+  }
+  
+  .valid:before {
+    position: relative;
+    left: -35px;
+  
+  }
+  
+  .invalid {
+    color: red;
+  }
+  
+  .invalid:before {
+    position: relative;
+    left: -35px;
+   
+  }
+#message {
+    border: 1px solid black;
+    border-radius: 10px;
+    padding: 10px;
+    font-size: 10px;
+    position: absolute;
+    top: 450px;
+    left: -10px;
+    width: 300px;
+    background-color: rgba(255, 255, 255, 0.616);
+   
+}
+
+.displayNone {
+    display: none;
+}
+
+.displayBlock {
+    display: block;
 }
