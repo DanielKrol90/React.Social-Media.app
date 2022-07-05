@@ -1,0 +1,29 @@
+.login-screen {
+    background-color: rgb(115, 206, 249);
+    border-radius: 20px;
+    box-shadow: 10px -5px 5px rgba(0, 0, 0, 0.539);
+    height: 400px;
+    width: 300px;
+    position: absolute;
+    right: 5%;
+    bottom: 10%;
+    border: 5px solid rgba(255, 255, 255, 0.829);
+}
+
+input[type="email"], input[type="password"], input[type="submit"] {
+    background-color: rgb(213, 238, 249);
+    margin: 30px auto;
+    display: block;
+    text-align: center;
+    border-radius: 20px;
+    height: 30px;
+}
+
+input[type="submit"] {
+    width: 120px;
+}
+
+input:hover {
+    background-color: rgb(163, 224, 250);
+}
+
