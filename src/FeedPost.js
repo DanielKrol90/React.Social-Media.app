@@ -1,14 +1,12 @@
+import "./FeedPost.css"
 
-
-
-function FeedPost() {
+export default function FeedPost() {
     return (
 
-        <div className="feed-board">
-            SPACE FOR POST
+        <div className="container">
+            <div className="feed-post">
+            </div>
         </div>
     );
 
 }
-
-export default FeedPost;

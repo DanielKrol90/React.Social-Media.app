@@ -8,16 +8,17 @@ h1 {
   font-size: 30px;
   color: rgb(29, 127, 214);
   position: absolute;
-  left: 10px;
-  top: 26%;
+  left: 5%;
+  top: 18%;
   transform: rotate(-45deg);
+ 
 }
 
 .navbar {
   background-color: transparent;
   display: block;
   position: absolute;
-  left: 34%;
+  left: 42%;
   top: 10%;
   padding: 10px;
   text-align: center;

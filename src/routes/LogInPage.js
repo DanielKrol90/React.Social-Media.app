@@ -1,8 +1,12 @@
-
+import "./LogInPage.css";
+import LogInMenu from "../LogInMenu";
 
 export default function LogInPage() {
     return (
-        <h1> LOG IN</h1>
+        <div className="container">
+            <h1> LOG IN</h1>
+            <LogInMenu />
+        </div>
     );
 }
 

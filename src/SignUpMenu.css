@@ -1,4 +1,4 @@
-.login-screen {
+.login-screen2 {
     background-color: rgb(115, 206, 249);
     border-radius: 20px;
     box-shadow: 10px -5px 5px rgba(0, 0, 0, 0.539);
@@ -10,7 +10,7 @@
     border: 5px solid rgba(255, 255, 255, 0.829);
 }
 
-input[type="text"], input[type="password"], input[type="submit"] {
+input[type="text"], input[type="password"], input[type="submit"], input[type="email"] {
     background-color: rgb(213, 238, 249);
     margin: 30px auto;
     display: block;

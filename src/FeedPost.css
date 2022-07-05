@@ -1,9 +1,10 @@
-.feed-board {
-    height: 600px;
-    width: 450px;
+.feed-post {
+    height: 650px;
+    width: 500px;
     background-color: #c2f9ff;
     position: absolute;
-    left: 33%;
+    left: 40%;
     top: 20%;
     border-radius: 10px;
+    box-shadow: 10px 10px 15px 5px black;
 }
