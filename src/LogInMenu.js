@@ -5,8 +5,8 @@ export default function LogInMenu() {
 
         <div className="login-screen">
             <form id="login-menu">
-                <input type="text" placeholder="Login"></input>
-                <input type="password" placeholder="Enter your password"></input>
+                <input type="text" id="login-user" placeholder="Login" required></input>
+                <input type="password" id="login-password" placeholder="Enter your password" required></input>
                 <input type="submit" value="LOG IN"></input>
             </form>
         </div>
