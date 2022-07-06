@@ -1,7 +1,7 @@
 import React, { Component, } from "react";
 import axios from "axios";
 import "./HomePage.css";
-import GetLatest from "../GetLatest"
+import GetLatestPost from "../GetLatestPost"
 
 
 class HomePage extends Component {
@@ -41,7 +41,6 @@ class HomePage extends Component {
 
                this.setState((state) => {
                 let newBoardOfPosts = [];
-                console.log(tickers);
 
                 for (const [ticker, postData ] of Object.entries(tickers)) {
                     let postDataObject = {
@@ -51,13 +50,17 @@ class HomePage extends Component {
                         postDate: postData.created_at,
                         updateDate: postData.updated_at,
                         likes: postData.likes,
-                        userData: postData.user
+                        userData: postData,
+                        userName: postData.user.username,
+                        userAvatar: postData.user.avatar_url
                     }
 
                     newBoardOfPosts.push(postDataObject);
                 }
                 
-                console.log(newBoardOfPosts);
+                return ({
+                    usersData: newBoardOfPosts
+                });
 
                })
             })
@@ -67,7 +70,7 @@ class HomePage extends Component {
         return (
             <div className="container">
                 <h1> HOME PAGE</h1>
-                <GetLatest />
+                <GetLatestPost getLatestPost={this.state.usersData} />
             </div>
         );
     }

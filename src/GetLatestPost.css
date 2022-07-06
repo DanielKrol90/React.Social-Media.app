@@ -1,6 +1,6 @@
 .postBoard {
-    height: 650px;
-    width: 500px;
+    height: auto;
+    width: 700px;
     background-color: #c2f9ff;
     position: absolute;
     left: 40%;
@@ -12,7 +12,7 @@
 .post {
     border: 3px solid rgb(122, 193, 207);
     height: 125px;
-    margin: 10px;
+    margin: 10px 10px 20px;
     border-radius: 20px;
     position: relative;
 }
@@ -21,6 +21,11 @@
     border: 1px solid black;
     height: 60px;
     margin: 10px;
+    width: 80px;
+}
+
+.postAvatar img {
+    height: 60px;
     width: 80px;
 }
 
@@ -34,12 +39,14 @@
 
 .postDate {
     border: 1px solid black;
-    height: 30px;
-    width: 90px;
+    height: 50px;
+    width: 170px;
     position: absolute;
     top: 10px;
     right: 10px;
     font-size: 12px;
+    text-align: center;
+    font-weight: bold;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -48,7 +55,7 @@
 .postContent {
     border: 1px solid black;
     height: 92px;
-    width: 240px;
+    width: 350px;
     position: absolute;
     left: 105px;
     top: 10px;
@@ -58,8 +65,8 @@
 
 .postLikes {
     border: 1px solid black;
-    height: 50px;
-    width: 50px;
+    height: 40px;
+    width: 40px;
     position: absolute;
     right: 10px;
     bottom: 10px;
