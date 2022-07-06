@@ -1,0 +1,81 @@
+.postBoard {
+    height: 650px;
+    width: 500px;
+    background-color: #c2f9ff;
+    position: absolute;
+    left: 40%;
+    top: 20%;
+    border-radius: 10px;
+    box-shadow: 10px 10px 15px 5px black;
+}
+
+.post {
+    border: 3px solid rgb(122, 193, 207);
+    height: 125px;
+    margin: 10px;
+    border-radius: 20px;
+    position: relative;
+}
+
+.postAvatar {
+    border: 1px solid black;
+    height: 60px;
+    margin: 10px;
+    width: 80px;
+}
+
+.postUserName {
+    border: 1px solid black;
+    height: 30px;
+    width: 70px;
+    margin-left: 10px;
+    padding-left: 10px;
+}
+
+.postDate {
+    border: 1px solid black;
+    height: 30px;
+    width: 90px;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.postContent {
+    border: 1px solid black;
+    height: 92px;
+    width: 240px;
+    position: absolute;
+    left: 105px;
+    top: 10px;
+    padding: 5px;
+    font-size: 8px;
+}
+
+.postLikes {
+    border: 1px solid black;
+    height: 50px;
+    width: 50px;
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+}
+
+.postBtn {
+    height: 30px;
+    width: 100px;
+    display: block;
+    margin: 30px auto 5px;
+    background-color: #d1faff;
+    border: 1px solid rgb(34, 148, 224);
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px black;
+}
+
+.postBtn:hover {
+    background-color: rgb(145, 209, 251);
+}

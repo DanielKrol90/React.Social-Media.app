@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import "./App.css";
 
 import { Routes, Route } from "react-router-dom";
-
 import HomePage from "./routes/HomePage";
 import LogInPage from "./routes/LogInPage";
 import SignUpPage from "./routes/SignUpPage";
