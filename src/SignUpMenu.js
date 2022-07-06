@@ -1,11 +1,7 @@
 
 import "./SignUpMenu.css";
 
-
 <input type='password' onMouseOver={()=>{ }}/>
-
-
-
 
 
 
