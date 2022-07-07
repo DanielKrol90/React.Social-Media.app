@@ -1,86 +1,36 @@
-import React, { Component, } from "react";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
 import "./HomePage.css";
-import GetLatestPost from "../GetLatestPost"
+import Post from "../components/Posts";
 
 
-class HomePage extends Component {
-
-    constructor(props) {
-        super(props);
-
-        this.state = {
-            usersData: []
-        };
-    }
-
-    componentDidMount() {
-        this.getLatestPosts();
-    }
-
-    getLatestPosts = () => {
-
-        let postData = {
-            username: "username",
-            password: "password"
-            };
-        
-        let axiosConfig = {
-            headers: {
-                'Content-Type': 'application/json',
-                'Accept': 'application/json',
-                'Authorization': 'Bearer ' + <jwtToken/>
-            }
-        };
-       
-        axios.post('https://akademia108.pl/api/social-app/post/latest', 
-            postData, 
-            axiosConfig)
-            .then((res) => {
-               const tickers = res.data;
-
-               this.setState((state) => {
-                let newBoardOfPosts = [];
-
-                for (const [user, postData ] of Object.entries(tickers)) {
-                    
-                    let postDataObject = {
-                        user: user,
-                        userID: postData.id,
-                        content: postData.content,
-                        postDate: postData.created_at,
-                        updateDate: postData.updated_at,
-                        likes: postData.likes,
-                        userData: postData,
-                        userName: postData.user.username,
-                        userAvatar: postData.user.avatar_url
-                    }
-
-                    newBoardOfPosts.push(postDataObject);
-                }
-                
-                return ({
-                    usersData: newBoardOfPosts
-                });
-
-               })
-            })
-            .catch((err) => {
-                console.log("AXIOS ERROR: ", err);
-            });
-            
-            
-    }
-
-    render() {
-        return (
-            <div className="container">
-                <h1> HOME PAGE</h1>
-                <GetLatestPost getLatestPost={this.state.usersData} />
-            </div>
-        );
-    }
-}
-
-
-export default HomePage;
+const HomePage = (props) => {
+    const [posts, setPosts] = useState([]);
+  
+    useEffect(() => {
+      getLatestPosts();
+    }, []);
+  
+    const getLatestPosts = () => {
+      axios
+        .post("https://akademia108.pl/api/social-app/post/latest")
+        .then((res) => {
+          setPosts(res.data);
+          console.log(res.data);
+        })
+        .catch((err) => {
+          console.log("AXIOS ERROR: ", err);
+        });
+    };
+  
+    return (
+   
+        <div className="postBoard">
+            {posts.map((post) => { return <Post data={post} key={post.id} />})}
+            <button className="postBtn">Load more</button>
+        </div>
+     
+    );
+  };
+  
+  export default HomePage;
