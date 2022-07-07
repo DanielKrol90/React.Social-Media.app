@@ -43,9 +43,9 @@ const HomePage = (props) => {
     <div className="container">
       <div className="postBoard">
         {posts.map((post) => {
-          return <Post data={post} key={post.id} />
+          return <Post data={post} key={post.id} />;
         })}
-        <button className="postBtn"onClick={Post}>Load more </button>
+        <button className="postBtn" onClick="">Load more </button>
       </div>
     </div>
   );
