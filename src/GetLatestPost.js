@@ -3,8 +3,8 @@ import './GetLatestPost.css'
 
 function GetLatestPost(props) {
 
-    let usersData = props.getLatestPost;
    
+    let usersData = props.getLatestPost;
     let postElements = usersData.map((usersDataObj) => {
 
         return (
@@ -15,10 +15,10 @@ function GetLatestPost(props) {
                 <div className="postData">
                     <div className="postInfo">
                         <div className="postUserName">{usersDataObj.userName}</div>
-                        <div className="postDate">{usersDataObj.postDate}</div>
+                        <div className="postDate">{(usersDataObj.postDate).value}</div>
                     </div>
                     <div className="postContent">{usersDataObj.content}</div>
-                    <div className="postLikes">{}</div>
+                    <div className="postLikes">{(usersDataObj.likes).length}</div>
                 </div>
             </div> 
         );
@@ -36,3 +36,5 @@ function GetLatestPost(props) {
 }
 
 export default GetLatestPost;
+
+

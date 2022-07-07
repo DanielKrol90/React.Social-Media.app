@@ -42,9 +42,10 @@ class HomePage extends Component {
                this.setState((state) => {
                 let newBoardOfPosts = [];
 
-                for (const [ticker, postData ] of Object.entries(tickers)) {
+                for (const [user, postData ] of Object.entries(tickers)) {
+                    
                     let postDataObject = {
-                        user: ticker,
+                        user: user,
                         userID: postData.id,
                         content: postData.content,
                         postDate: postData.created_at,
@@ -64,6 +65,11 @@ class HomePage extends Component {
 
                })
             })
+            .catch((err) => {
+                console.log("AXIOS ERROR: ", err);
+            });
+            
+            
     }
 
     render() {
