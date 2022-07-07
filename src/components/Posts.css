@@ -1,6 +1,7 @@
 
 .post {
-    border: 3px solid rgb(122, 193, 207);
+    border: 3px solid rgb(14, 198, 235);
+    background-color: #8ae4f0;
     height: 125px;
     margin: 10px 10px 20px;
     border-radius: 20px;
@@ -30,8 +31,9 @@
 }
 
 .postDate {
-    border: 1px solid black;
-    height: 50px;
+    background-color: rgb(215, 255, 218);
+    border: 2px solid rgb(236, 117, 117);
+    height: 40px;
     width: 170px;
     position: absolute;
     top: 10px;
@@ -42,6 +44,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    border-radius: 20px;
 }
 
 .spanDate {

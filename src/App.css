@@ -5,14 +5,14 @@ body {
 h1 {
   font-size: 30px;
   color: rgb(29, 127, 214);
-  margin-left: 45%;
+  margin-left: 38%;
 }
 
 .navbar {
   background-color: transparent;
   display: block;
   position: absolute;
-  left: 42%;
+  left: 35%;
   top: 10%;
   padding: 10px;
   text-align: center;
