@@ -5,9 +5,10 @@
     background-color: #c2f9ff;
     border-radius: 10px;
     box-shadow: 10px 10px 15px 5px black;
-    position: absolute;
-    top: 200px;
-    left: 30%;
+    display: block;
+    margin: 100px auto 0px;
+    padding: 5px;
+    
 }
 
 .postBtn {

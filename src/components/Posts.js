@@ -1,5 +1,6 @@
 import React from "react";
 import "./Posts.css";
+
 const Post = (props) => {
 
   return (
