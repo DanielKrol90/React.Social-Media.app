@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import { Link } from "react-router-dom";
 import "./App.css";
 
@@ -7,7 +7,10 @@ import HomePage from "./routes/HomePage";
 import LogInPage from "./routes/LogInPage";
 import SignUpPage from "./routes/SignUpPage";
 
+
+
 function App() {
+
   return (
     <div className="App">
       <h1>FreeBook - Social Media</h1>

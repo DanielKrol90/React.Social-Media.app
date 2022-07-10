@@ -1,21 +1,19 @@
 body {
   background-color: rgb(150, 212, 245);
-}
 
+}
 h1 {
   font-size: 30px;
   color: rgb(29, 127, 214);
-  display: flex;
-  justify-content: center;
-  
+  text-align: center;
 }
-
 .navbar {
   background-color: transparent;
-  display: block;
+  display: flex;
   padding: 10px;
   text-align: center;
   border-radius: 10px;
+  justify-content: center;
 }
 
 a {
