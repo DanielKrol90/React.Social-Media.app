@@ -34,19 +34,6 @@ const HomePage = () => {
       });
   };
 
-  const logOut = () => {
-    axios
-      .post("https://akademia108.pl/api/social-app/user/logout", {
-        "jwt_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC8xMjcuMC4wLjE6ODAwMFwvdXNlclwvbG9naW4iLCJpYXQiOjE1OTU5MjcwMTksImV4cCI6MTU5NTk2MzAxOSwibmJmIjoxNTk1OTI3MDE5LCJqdGkiOiI1SnBTVWNoU1htQ0lkWnZnIiwic3ViIjoxLCJwcnYiOiI4N2UwYWYxZWY5ZmQxNTgxMmZkZWM5NzE1M2ExNGUwYjA0NzU0NmFhIn0.AZ24dPJrCkjhEkle9U78wS_hM5GdCCbmTFJwc9t5wok"
-
-      })
-      .then((res) => {
-       
-      })
-      .catch((err) => {
-        console.log("AXIOS ERROR: ", err);
-      });
-  };
 
   return (
     <div className="container">

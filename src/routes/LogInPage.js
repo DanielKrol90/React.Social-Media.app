@@ -1,51 +1,65 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import axios from "axios";
 import "./LogInPage.css";
+import { Navigate } from "react-router-dom";
 
 
-const LogInPage = () => {
-  const [user, setUser] = useState([]);
-  
-  axios.defaults.headers.common["Authorization"] = "Bearer " + (user ? user.jwt_token : "");
+const LogInPage = (props) => {
 
-  useEffect(() => {
-    userLogIn();
-  }, []);
+  const [formData, setFormData] = useState({
+    username: '',
+    password: ''
+})
 
+  const handleInputChange = e => {
+    const target = e.target
 
-  const userLogIn = () => {
+    setFormData(prevData=>{
+        return {...prevData, [target.name]: e.target.value }
+    })
+}
+
+  const userLogIn = (e) => {
+
+    e.preventDefault();
 
       axios
         .post("https://akademia108.pl/api/social-app/user/login",
         {
-          "username": "adam",
-          "password": "1234"
+          "username": formData.username,
+          "password": formData.password
         } 
         )
         .then((res) => {
-          setUser(res.data);
-          console.log(res.data);
+          props.setUser(res.data);
+          localStorage.setItem("user", JSON.stringify(res.data));
         })
         .catch((err) => {
           console.log("AXIOS ERROR: ", err);
         });
     };
 
+    console.log(formData)
+
   return (
         <div className="loginIn-screen">
+        {props.user&&<Navigate to="/"/> }
           <h1>Sign In</h1>
-          <form className="form-signIn">
+          <form className="form-signIn" onSubmit={userLogIn}>
             <label htmlFor="username">Username</label>
             <input
               type="text"
               id="username"
-              autoComplete="off"
+              name="username"
+              onChange={handleInputChange}
               required
             />
             <label htmlFor="password">Password</label>
             <input
               type="password"
+              name="password"
               id="password"
+              onChange={handleInputChange}
               required
             />
             <button>Log In</button>
@@ -53,8 +67,7 @@ const LogInPage = () => {
           <p>
             Need a Account? <br />
             <span className="line">
-              {/* miejsce na router do signuppage */}
-              <a href="#">Sign Up!</a>
+              <a href="SignUpPage"> Sign Up!</a>
             </span>
           </p>
         </div>
