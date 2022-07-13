@@ -41,9 +41,9 @@ const HomePage = () => {
         {posts.map((post) => {
           return <Post data={post} key={post.id} />;
         })}
-        <button className="postBtn" onClick={getOlderPosts}>
-          Load more{" "}
-        </button>
+        {<button className="postBtn" onClick={getOlderPosts}>
+          Load more
+        </button>}}
       </div>
     </div>
   );

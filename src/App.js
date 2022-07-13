@@ -21,6 +21,7 @@ function App() {
       .then((res) => {
         setUser(res.data)
         localStorage.removeItem('user');
+        setUser('');
       })
       .catch((err) => {
         console.log("AXIOS ERROR: ", err);
@@ -40,7 +41,7 @@ function App() {
 
       <Routes>
        
-          <Route path="/" element={<HomePage />} />
+          <Route path="/" element={<HomePage setUser={setUser} user={user} />} />
           <Route path="LogInPage" element={<LogInPage setUser={setUser} user={user} />} />
           <Route path="SignUpPage" element={<SignUpPage /> } />
        
