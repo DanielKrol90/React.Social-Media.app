@@ -35,7 +35,7 @@ function App() {
         <Link to="/">Home</Link>
         {!user&&<Link to="LogInPage">Log In</Link>}
         {!user&&<Link to="SignUpPage">Sign Up</Link>}
-        {user&&<Link to="/" onClick={logOut}>Log Out</Link>}
+        {user&&<Link onClick={logOut} to="/" >Log Out</Link>}
       </nav>
 
       <Routes>
