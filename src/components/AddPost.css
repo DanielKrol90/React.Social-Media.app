@@ -1,0 +1,52 @@
+.AddPostForm {
+    border: 3px solid rgb(181, 236, 247);
+    background-color: #8ae4f0;
+    height: 110px;
+    margin: 10px auto;
+    border-radius: 20px;
+    width: 500px;
+    padding: 15px;
+    display: flex;
+    position: relative;
+   
+}
+
+.AddPostForm label {
+    height: 30px;
+    width: 150px;
+    margin: 0;
+    margin: auto;
+    margin-left: 10px;
+    order: 2;
+    position: absolute;
+    top: 18px;
+    right: 10px;
+}
+
+.AddPostForm textarea {
+    height: 90px;
+    width: 300px;
+    border: 3px solid rgb(181, 236, 247);
+    background-color: #ffffff;
+    border-radius: 10px;
+    overflow: hidden;
+    resize: none;
+    padding: 8px;
+    order: 1;
+}
+.addPostBtn {
+    height: 50px;
+    width: 50px;
+    order: 3;
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    font-size: 40px;
+    text-align: center;
+    padding: 0;
+}
+
+.addPostBtn:hover {
+    color: #fff;
+    background-color: rgb(20, 215, 20);
+}

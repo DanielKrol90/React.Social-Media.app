@@ -11,23 +11,24 @@ import SignUpPage from "./routes/SignUpPage";
 function App() {
 
   const [user, setUser] = useState(JSON.parse(localStorage.getItem('user')))
+  
   axios.defaults.headers.common["Authorization"] = "Bearer " + (user ? user.jwt_token : "");
 
-  const logOut = () => {
+  const logOut = (e) => {
+    e.preventDefault();
+    
     axios
-      .post("https://akademia108.pl/api/social-app/user/logout", 
-        {"Authorization" : user.jwt_token}
-      )
-      .then((res) => {
-        setUser(res.data)
+      .post("https://akademia108.pl/api/social-app/user/logout")
+      .then(() => {
         localStorage.removeItem('user');
-        setUser('');
+        setUser(null);
       })
       .catch((err) => {
         console.log("AXIOS ERROR: ", err);
       });
   };
   
+
   return (
     <div className="App">
       <h1>FreeBook - Social Media</h1>

@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import axios from "axios";
-import "./LogInPage.css";
 import { Navigate } from "react-router-dom";
 
 const LogInPage = (props) => {
@@ -34,10 +33,12 @@ const LogInPage = (props) => {
       });
   };
 
+  
+
   return (
     <div className="loginIn-screen">
       {props.user && <Navigate to="/" />}
-      <h1>Sign In</h1>
+      <h1>Log In</h1>
       <form className="form-signIn" onSubmit={userLogIn}>
         <label htmlFor="username">Username</label>
         <input

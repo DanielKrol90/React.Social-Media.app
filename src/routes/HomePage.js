@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import "./HomePage.css";
+import AddPost from "../components/AddPost";
 import Post from "../components/Posts";
 
-const HomePage = () => {
+const HomePage = (props, user, setUser) => {
   const [posts, setPosts] = useState([]);
 
   useEffect(() => {
     getLatestPosts();
-  }, []);
+  }, [props.user]);
 
   const getLatestPosts = () => {
     axios
@@ -34,16 +34,19 @@ const HomePage = () => {
       });
   };
 
+  
+
 
   return (
     <div className="container">
+      {!user ? null : <AddPost />}
       <div className="postBoard">
         {posts.map((post) => {
           return <Post data={post} key={post.id} />;
         })}
-        {<button className="postBtn" onClick={getOlderPosts}>
+        <button className="postBtn" onClick={getOlderPosts}>
           Load more
-        </button>}}
+        </button>
       </div>
     </div>
   );
