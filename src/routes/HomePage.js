@@ -6,6 +6,7 @@ import Post from "../components/Posts";
 const HomePage = (props, user, setUser) => {
   const [posts, setPosts] = useState([]);
 
+
   useEffect(() => {
     getLatestPosts();
   }, [props.user]);
@@ -39,7 +40,7 @@ const HomePage = (props, user, setUser) => {
 
   return (
     <div className="container">
-      {!user ? null : <AddPost />}
+     {props.user && <AddPost />}
       <div className="postBoard">
         {posts.map((post) => {
           return <Post data={post} key={post.id} />;

@@ -50,3 +50,7 @@
     color: #fff;
     background-color: rgb(20, 215, 20);
 }
+
+#showDisplay {
+    display: none;
+}
