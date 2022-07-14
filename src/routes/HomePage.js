@@ -35,12 +35,25 @@ const HomePage = (props, user, setUser) => {
       });
   };
 
+  const getNewerThenPosts = () => {
+    axios
+      .post("https://akademia108.pl/api/social-app/post/newer-then", { 
+        "date": posts.created_at
+      })
+      .then((res) => {
+        setPosts(posts.concat(res.data));
+        console.log(res.data);
+      })
+      .catch((err) => {
+        console.log("AXIOS ERROR: ", err);
+      });
+  };
   
 
 
   return (
     <div className="container">
-     {props.user && <AddPost />}
+     {props.user && <AddPost getNewerThenPosts={getNewerThenPosts} />}
       <div className="postBoard">
         {posts.map((post) => {
           return <Post data={post} key={post.id} />;
