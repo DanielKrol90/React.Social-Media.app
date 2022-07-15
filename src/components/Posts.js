@@ -1,6 +1,7 @@
 import React from "react";
 import "./Posts.css";
 
+
 const Post = (props) => {
   return (
     <div key={Post.id} className="post">
@@ -20,6 +21,7 @@ const Post = (props) => {
           </div>
         </div>
         <div className="postContent">{props.data.content}</div>
+        <button className="btn-likes"></button>
         <div className="postLikes">{props.data.likes.length}</div>
       </div>
     </div>

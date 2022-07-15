@@ -3,7 +3,7 @@ import axios from "axios";
 import AddPost from "../components/AddPost";
 import Post from "../components/Posts";
 
-const HomePage = (props, user, setUser) => {
+const HomePage = (props) => {
   const [posts, setPosts] = useState([]);
 
 
@@ -11,6 +11,7 @@ const HomePage = (props, user, setUser) => {
     getLatestPosts();
   }, [props.user]);
 
+  
   const getLatestPosts = () => {
     axios
       .post("https://akademia108.pl/api/social-app/post/latest")
@@ -38,11 +39,10 @@ const HomePage = (props, user, setUser) => {
   const getNewerThenPosts = () => {
     axios
       .post("https://akademia108.pl/api/social-app/post/newer-then", { 
-        "date": posts.created_at
+        "date": posts[0].created_at
       })
       .then((res) => {
-        setPosts(posts.concat(res.data));
-        console.log(res.data);
+        setPosts(res.data.concat(posts));
       })
       .catch((err) => {
         console.log("AXIOS ERROR: ", err);
@@ -58,9 +58,9 @@ const HomePage = (props, user, setUser) => {
         {posts.map((post) => {
           return <Post data={post} key={post.id} />;
         })}
-        <button className="postBtn" onClick={getOlderPosts}>
+        {props.user &&<button className="postBtn" onClick={getOlderPosts}>
           Load more
-        </button>
+        </button>}
       </div>
     </div>
   );
