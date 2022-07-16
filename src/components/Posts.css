@@ -79,3 +79,36 @@
     border-radius: 10px;
     background-color: #f0fdff;
 }
+
+.btnLikes {
+    width: 35px;
+    height: 35px;
+    position: absolute;
+    right: 60px;
+    bottom: 10px;
+}
+
+.btnLikes:hover {
+    background-color: #b1ff9c;
+}
+
+.btnLikes img {
+    position: absolute;
+    top: 0;
+    right: -2px;
+}
+
+.btnUnLikes {
+    width: 35px;
+    height: 35px;
+    position: absolute;
+    right: 100px;
+    bottom: 10px;
+}
+
+.btnUnLikes img {
+    position: absolute;
+    top: 0;
+    right: -2px;
+    transform: rotate(180deg);
+}

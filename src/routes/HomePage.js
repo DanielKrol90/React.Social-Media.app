@@ -48,7 +48,7 @@ const HomePage = (props) => {
         console.log("AXIOS ERROR: ", err);
       });
   };
-  
+
 
 
   return (
@@ -56,7 +56,7 @@ const HomePage = (props) => {
      {props.user && <AddPost getNewerThenPosts={getNewerThenPosts} />}
       <div className="postBoard">
         {posts.map((post) => {
-          return <Post data={post} key={post.id} />;
+          return <Post data={post} key={post.id} user={props.user} />;
         })}
         {props.user &&<button className="postBtn" onClick={getOlderPosts}>
           Load more
