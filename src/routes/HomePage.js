@@ -51,9 +51,7 @@ const HomePage = (props) => {
 
   return (
     <div className="container">
-      {props.user && (
-        <Follow/>
-      )}
+      {props.user && (<Follow/> )}
       {props.user && <AddPost getNewerThenPosts={getNewerThenPosts} />}
       <div className="postBoard">
         {posts.map((post) => {
