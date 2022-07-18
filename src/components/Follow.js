@@ -62,7 +62,6 @@ const Follow = (props) => {
       })
       .then((res) => {
         followAllData(res.data);
-        console.log(res.data)
       })
       .catch((err) => {
         console.log(err);
@@ -76,10 +75,26 @@ const Follow = (props) => {
         <img src={user.avatar_url} alt="avatar" />
         <span>{user.username}</span>
         <button className="btnFollow" onClick={() => {addFollow(user.id);}}>
-        Dodaj
+        Add Follow
         </button>
         <button className="btnUnFollow" onClick={() => {deleteFollow(user.id);}}>
-          Usuń
+          Delete Follow
+        </button>
+      </li>
+    );
+  });
+
+  let liFollowAll = followAll.map((user) => {
+
+    return (
+      <li key={user.id}>
+        <img src={user.avatar_url} alt="avatar" />
+        <span>{user.username}</span>
+        <button className="btnFollow" onClick={() => {addFollow(user.id);}}>
+        Add Follow
+        </button>
+        <button className="btnUnFollow" onClick={() => {deleteFollow(user.id);}}>
+          Delete Follow
         </button>
       </li>
     );
@@ -87,8 +102,10 @@ const Follow = (props) => {
 
   return (
     <div className="followList">
-      <h2>Lista obserwowanych</h2>
+      <h2>Recomendation to Follow</h2>
       <ul>{liFollowList}</ul>
+      <h2>You Follow Them</h2>
+      <ul>{liFollowAll}</ul>
     </div>
   );
 };
