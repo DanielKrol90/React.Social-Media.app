@@ -50,13 +50,12 @@ const HomePage = (props) => {
   };
 
 
-
   return (
     <div className="container">
      {props.user && <AddPost getNewerThenPosts={getNewerThenPosts} />}
       <div className="postBoard">
         {posts.map((post) => {
-          return <Post data={post} key={post.id} user={props.user} />;
+          return <Post data={post} user={props.user} key={post.id} />;
         })}
         {props.user &&<button className="postBtn" onClick={getOlderPosts}>
           Load more

@@ -102,7 +102,7 @@
     width: 35px;
     height: 35px;
     position: absolute;
-    right: 100px;
+    right: 60px;
     bottom: 10px;
 }
 
@@ -111,4 +111,23 @@
     top: 0;
     right: -2px;
     transform: rotate(180deg);
+}
+
+.btnUnLikes:hover {
+    background-color: #ff9c9c;
+}
+
+.btnDeletePost {
+    width: 35px;
+    height: 35px;
+    position: absolute;
+    right: 100px;
+    bottom: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.btnDeletePost:hover {
+    background-color: #fff;
+    color: rgb(255, 0, 0);
 }
