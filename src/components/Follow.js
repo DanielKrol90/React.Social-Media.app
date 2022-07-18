@@ -38,16 +38,16 @@ const Follow = (props) => {
       });
   };
 
-  const addFollow = (e) => {
-    e.preventDefault();
+  const addFollow = () => {
     axios
       .post("https://akademia108.pl/api/social-app/follows/follow", {
-        leader_id:  props.data.id
+        leader_id:  props.user.id
       })
 
       .then((res) => {
-        props.followAllData();
-        props.followRecommendations()
+        followAllData(res.data);
+        followRecommendations(res.data)
+        console.log(res.data)
       })
       .catch((err) => {
         console.log(err);
@@ -55,14 +55,14 @@ const Follow = (props) => {
   };
 
 
-  const deleteFollow = (e) => {
-    e.preventDefault();
+  const deleteFollow = () => {
     axios
       .post("https://akademia108.pl/api/social-app/follows/disfollow", {
-        leader_id: props.data.id
+        leader_id: props.user.id
       })
       .then((res) => {
-        props.followAllData();
+        followAllData(res.data);
+        console.log(res.data)
       })
       .catch((err) => {
         console.log(err);
@@ -75,11 +75,11 @@ const Follow = (props) => {
       <li key={user.id}>
         <img src={user.avatar_url} alt="avatar" />
         <span>{user.username}</span>
-        <button className="btnFollow" onClick={(e) => {deleteFollow(user.id);}}>
-          Usuń
+        <button className="btnFollow" onClick={() => {addFollow(user.id);}}>
+        Dodaj
         </button>
-        <button className="btnUnFollow" onClick={(e) => {addFollow(user.id);}}>
-          Dodaj
+        <button className="btnUnFollow" onClick={() => {deleteFollow(user.id);}}>
+          Usuń
         </button>
       </li>
     );
