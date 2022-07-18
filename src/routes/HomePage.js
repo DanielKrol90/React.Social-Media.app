@@ -2,16 +2,19 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import AddPost from "../components/AddPost";
 import Post from "../components/Posts";
+import Follow from "../components/Follow";
 
 const HomePage = (props) => {
   const [posts, setPosts] = useState([]);
-
+  const [followList, setFollowList] = useState();
+  const [followAll, setFollowAll] = useState();
 
   useEffect(() => {
     getLatestPosts();
+    followRecommendations();
+    followAllData()
   }, [props.user]);
 
-  
   const getLatestPosts = () => {
     axios
       .post("https://akademia108.pl/api/social-app/post/latest")
@@ -38,8 +41,8 @@ const HomePage = (props) => {
 
   const getNewerThenPosts = () => {
     axios
-      .post("https://akademia108.pl/api/social-app/post/newer-then", { 
-        "date": posts[0].created_at
+      .post("https://akademia108.pl/api/social-app/post/newer-then", {
+        date: posts[0].created_at,
       })
       .then((res) => {
         setPosts(res.data.concat(posts));
@@ -49,17 +52,56 @@ const HomePage = (props) => {
       });
   };
 
+  const followRecommendations = () => {
+    axios
+      .post("https://akademia108.pl/api/social-app/follows/recommendations")
+      .then((res) => {
+        setFollowList(res.data);
+        console.log(res.data)
+      })
+      .catch((err) => {
+        console.log("AXIOS ERROR: ", err);
+      });
+  };
+
+  const followAllData = () => {
+    axios
+      .post("https://akademia108.pl/api/social-app/follows/allfollows")
+      .then((res) => {
+        setFollowAll(res.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
 
   return (
     <div className="container">
-     {props.user && <AddPost getNewerThenPosts={getNewerThenPosts} />}
+      {props.user && (
+        <Follow
+          followRecommendations={followRecommendations}
+          setFollowList={setFollowList}
+          followAllData={followAllData}
+          followList={followList}
+        />
+      )}
+      {props.user && <AddPost getNewerThenPosts={getNewerThenPosts} />}
       <div className="postBoard">
         {posts.map((post) => {
-          return <Post data={post} user={props.user} key={post.id} />;
+          return (
+            <Post
+              data={post}
+              user={props.user}
+              key={post.id}
+              setPosts={setPosts}
+            />
+          );
         })}
-        {props.user &&<button className="postBtn" onClick={getOlderPosts}>
-          Load more
-        </button>}
+        {props.user && (
+          <button className="postBtn" onClick={getOlderPosts}>
+            Load more
+          </button>
+        )}
       </div>
     </div>
   );

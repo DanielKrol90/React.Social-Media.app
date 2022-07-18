@@ -39,4 +39,4 @@ const AddPost = (props) => {
   )
 }
 
-export default AddPost
+export default AddPost;

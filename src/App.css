@@ -156,3 +156,24 @@ input:hover {
   background-color: rgba(255, 255, 255, 0.616);
  
 }
+
+.followList {
+  display: flex;
+  width: 400px;
+  height: 200px;
+  background-color: rgb(255, 202, 202);
+  margin: 0px auto;
+
+}
+.followList ul {
+  list-style: none;
+  display: flex;
+  width: 100%;
+  text-align: center;
+  padding: 0;
+}
+.followList ul li {
+  width: 100%;
+  background-color: rgb(203, 255, 202);
+  border: 1px solid black;
+}
