@@ -1,7 +1,33 @@
-import React from "react";
+import React, {useState} from "react";
 import axios from "axios";
 
 const Follow = (props) => {
+
+  const [followList, setFollowList] = useState([]);
+  const [followAll, setFollowAll] = useState([]);
+
+  const followRecommendations = () => {
+    axios
+      .post("https://akademia108.pl/api/social-app/follows/recommendations",)
+      .then((res) => {
+        setFollowList(res.data);
+      })
+      .catch((err) => {
+        console.log("AXIOS ERROR: ", err);
+      });
+  };
+
+  const followAllData = () => {
+    axios
+      .post("https://akademia108.pl/api/social-app/follows/allfollows")
+      .then((res) => {
+        setFollowAll(res.data);
+        console.log(res.data)
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
 
   const addFollow = (e, id) => {
     e.preventDefault();
@@ -34,7 +60,7 @@ const Follow = (props) => {
       });
   };
 
-  let liFollowList = props.followList.map((user) => {
+  let liFollowList = setFollowList.map((user) => {
 
     return (
       <li key={user.id}>

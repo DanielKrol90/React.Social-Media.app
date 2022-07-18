@@ -6,13 +6,10 @@ import Follow from "../components/Follow";
 
 const HomePage = (props) => {
   const [posts, setPosts] = useState([]);
-  const [followList, setFollowList] = useState();
-  const [followAll, setFollowAll] = useState();
+  
 
   useEffect(() => {
     getLatestPosts();
-    followRecommendations();
-    followAllData()
   }, [props.user]);
 
   const getLatestPosts = () => {
@@ -52,38 +49,10 @@ const HomePage = (props) => {
       });
   };
 
-  const followRecommendations = () => {
-    axios
-      .post("https://akademia108.pl/api/social-app/follows/recommendations")
-      .then((res) => {
-        setFollowList(res.data);
-        console.log(res.data)
-      })
-      .catch((err) => {
-        console.log("AXIOS ERROR: ", err);
-      });
-  };
-
-  const followAllData = () => {
-    axios
-      .post("https://akademia108.pl/api/social-app/follows/allfollows")
-      .then((res) => {
-        setFollowAll(res.data);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  };
-
   return (
     <div className="container">
       {props.user && (
-        <Follow
-          followRecommendations={followRecommendations}
-          setFollowList={setFollowList}
-          followAllData={followAllData}
-          followList={followList}
-        />
+        <Follow/>
       )}
       {props.user && <AddPost getNewerThenPosts={getNewerThenPosts} />}
       <div className="postBoard">
