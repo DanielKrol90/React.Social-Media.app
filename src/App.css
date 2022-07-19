@@ -160,29 +160,38 @@ input:hover {
 .followList {
   display: block;
   width: 600px;
-  height: 750px;
+  height: 780px;
   background-color: rgb(220, 245, 255);
   margin: 30px auto;
   text-align: center;
   border-radius: 20px;
-  
-
 }
+
 .followList ul {
   list-style: none;
   display: flex;
-  width: 100%;
   text-align: center;
   padding: 0;
-  margin: 80px auto;
-  
 }
+.followList h2 {
+  padding-top: 30px;
+}
+.followList .followListHeader {
+  padding-top: 90px;
+}
+
+.followList .follow-list {
+  padding-top: 0px;
+}
+
 .followList ul li {
-  width: 100%;
   background-color: rgb(203, 255, 202);
-  height: 200px;
-  width: 180px;
+  height: 190px;
+  width: 100%;
   padding: 10px;
+  border: 1px solid rgb(57, 126, 238);
+  border-radius: 20px;
+  margin: 0 10px;
 }
 
 .followList ul li img {
@@ -193,7 +202,7 @@ input:hover {
   text-align: center;
   text-transform: capitalize;
   display: block;
-  margin: 10px;
+  margin: 5px;
   font-weight: bold;
 }
 
@@ -201,6 +210,9 @@ input:hover {
   background-color: rgb(196, 255, 197);
   color: black;
   border: 1px solid rgba(54, 134, 255, 0.491);
+  width: 110px;
+  font-size: 16px;
+  margin-top: 25px;
 }
 .btnFollow:hover {
   background-color: rgb(143, 255, 145);
@@ -212,9 +224,15 @@ input:hover {
   background-color: rgb(255, 200, 200);
   margin-top: 5px;
   border: 1px solid rgba(54, 134, 255, 0.491);
+  width: 110px;
+  font-size: 16px;
 }
 .btnUnFollow:hover {
   background-color: rgb(255, 136, 136);
   color: black;
   outline: none;
+}
+
+.follow-list button {
+  margin-top: 25px;
 }
