@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 
 const Follow = (props) => {
+
   useEffect(() => {
     return () => {
       followRecommendations();
@@ -17,7 +18,6 @@ const Follow = (props) => {
       .post("https://akademia108.pl/api/social-app/follows/recommendations")
       .then((res) => {
         setFollowList(res.data);
-        console.log(res.data);
       })
       .catch((err) => {
         console.log("AXIOS ERROR: ", err);
@@ -35,26 +35,25 @@ const Follow = (props) => {
       });
   };
 
-  const addFollow = () => {
+  const addFollow = (id) => {
     axios
       .post("https://akademia108.pl/api/social-app/follows/follow", {
-        leader_id: props.user.id,
+        leader_id: id,
       })
 
       .then((res) => {
         followAllData(res.data);
         followRecommendations(res.data);
-        console.log(res.data);
       })
       .catch((err) => {
         console.log(err);
       });
   };
 
-  const deleteFollow = () => {
+  const deleteFollow = (id) => {
     axios
       .post("https://akademia108.pl/api/social-app/follows/disfollow", {
-        leader_id: props.user.id,
+        leader_id: id,
       })
       .then((res) => {
         followAllData(res.data);
@@ -100,7 +99,7 @@ const Follow = (props) => {
             deleteFollow(user.id);
           }}
         >
-          UnFollow
+          Unfollow
         </button>
       </li>
     );
@@ -108,10 +107,14 @@ const Follow = (props) => {
 
   return (
     <div className="followList">
-        <h2 className="RecListHeader">Recomendation to Follow</h2>
+      <div className="recDiv">
+      <h2>Recomendations</h2>
         <ul className="rec-list">{liFollowList}</ul>
-        <h2 className="followListHeader">List of Followed</h2>
+      </div>
+      <div className="folowDiv">
+        <h2>Followed</h2>
         <ul className="follow-list">{liFollowAll}</ul>
+      </div>
     </div>
   );
 };

@@ -20,7 +20,6 @@ const AddPost = (props) => {
       })
       .then((res) => {
         props.getNewerThenPosts(); 
-        console.log(res);
       })
       .catch((err) => {
         console.log("AXIOS ERROR: ", err);
