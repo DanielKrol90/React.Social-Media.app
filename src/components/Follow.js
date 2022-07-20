@@ -3,13 +3,6 @@ import axios from "axios";
 
 const Follow = (props) => {
 
-  useEffect(() => {
-    return () => {
-      followRecommendations();
-      followAllData();
-    };
-  }, []);
-
   const [followList, setFollowList] = useState([]);
   const [followAll, setFollowAll] = useState([]);
 
@@ -44,6 +37,7 @@ const Follow = (props) => {
       .then((res) => {
         followAllData(res.data);
         followRecommendations(res.data);
+        props.getLatestPosts();
       })
       .catch((err) => {
         console.log(err);
@@ -57,6 +51,7 @@ const Follow = (props) => {
       })
       .then((res) => {
         followAllData(res.data);
+        props.getLatestPosts();
       })
       .catch((err) => {
         console.log(err);
@@ -104,6 +99,11 @@ const Follow = (props) => {
       </li>
     );
   });
+
+  useEffect(() => {
+    followRecommendations();
+    followAllData();
+}, []);
 
   return (
     <div className="followList">

@@ -51,7 +51,7 @@ const HomePage = (props) => {
 
   return (
     <div className="container">
-      {props.user && (<Follow user={props.user}/> )}
+      {props.user && (<Follow getLatestPosts={getLatestPosts}/> )}
       {props.user && <AddPost getNewerThenPosts={getNewerThenPosts} />}
       <div className="postBoard">
         {posts.map((post) => {

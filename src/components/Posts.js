@@ -47,7 +47,6 @@ const Post = (props) => {
         post_id: props.data.id,
       })
       .then((res) => {
-        console.log(res.data);
         props.setPosts((posts) => {
           return posts.filter((post) => post.id !== res.data.post_id);
         });
