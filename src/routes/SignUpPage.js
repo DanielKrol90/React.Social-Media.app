@@ -48,12 +48,12 @@ const SignUpPage = (props) => {
           username: "Username is too short. Username must be at least 4 characters.",
         };
       });
-    } else if (!/^[^\s]*$/.test(formData.username.trim())) {
+    } else if (/^[^\s]*$/.test(formData.username.trim())) {
       validError.username = true;
       setValidError((prevErrors) => {
         return {
           ...prevErrors,
-          username: "To create Username you can use space",
+          username: "To create Username you can't use space",
         };
       });
     } else {
@@ -100,13 +100,13 @@ const SignUpPage = (props) => {
         };
       });
     } else if (
-      !/[!@#$%^&*()_+\-=[\]{};':"\\|,.<>/?]+/.test(formData.password.trim())
+      !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(formData.password.trim())
     ) {
       validError.password = true;
       setValidError((prevErrors) => {
         return {
           ...prevErrors,
-          password: "For Password you need add special sign: ! # @ $ %",
+          password: "In password You need to Include special sign ex. ! @ # $.",
         };
       });
     } else {
@@ -122,7 +122,7 @@ const SignUpPage = (props) => {
       setValidError((prevErrors) => {
         return {
           ...prevErrors,
-          repeatPassword: "Passwords should be the same",
+          repeatPassword: "Passwords confirm is not the same as password",
         };
       });
     } else {
@@ -135,7 +135,7 @@ const SignUpPage = (props) => {
       !validationCheckErrors.username &&
       !validationCheckErrors.email &&
       !validationCheckErrors.password &&
-      !validationCheckErrors.repeatPassword
+      !validationCheckErrors.repeatPassword 
     );
  };
 
@@ -152,26 +152,20 @@ const SignUpPage = (props) => {
     password: formData.password,
   };
 
-    e.preventDefault();
     axios
       .post("https://akademia108.pl/api/social-app/user/signup",JSON.stringify(newUser))
       .then((res) => {
         let resData = res.data;
-
-        if (resData.userSignIn) {
+        console.log(resData)
+        if (resData.signedup) {
           setUserValidSignInMessege("Account created");
-          setValidSignUp(true);
-        } else {
-          if (resData.username) {
-            setUserValidSignInMessege(resData.username[0]);
-          } else if (resData.message.email) {
-            setUserValidSignInMessege(resData.email[0]);
-          }
-        }})
+
+      
+    }})
       .catch((err) => {
         console.log("AXIOS ERROR: ", err);
       });
-  };
+    };
 
   return (
     <div className="loginSign-screen">
