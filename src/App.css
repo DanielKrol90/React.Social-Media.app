@@ -79,6 +79,7 @@ button {
   padding: 10px;
   background-color: rgb(255, 255, 255);
   width: 150px;
+  color: black;
 }
 
 button:hover {
@@ -273,4 +274,10 @@ ul {
   width: 90%;
   border-radius: 20px;
   background-color: #90ffc69b;
+}
+
+.form-linked {
+  margin: 20px auto;
+  position: relative;
+  right: -15%;
 }

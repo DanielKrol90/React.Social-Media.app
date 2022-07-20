@@ -35,21 +35,21 @@ const SignUpPage = (props) => {
       username: false,
       email: false,
       password: false,
-      repeatPassword: false,
+      passwordConfirm: false,
     };
 
     // validation for username input 
 
     if (formData.username.trim().length < 4) {
-      validError.username = true;
+      validationCheckErrors.username = true;
       setValidError((prevErrors) => {
         return {
           ...prevErrors,
           username: "Username is too short. Username must be at least 4 characters.",
         };
       });
-    } else if (/^[^\s]*$/.test(formData.username.trim())) {
-      validError.username = true;
+    } else if (!/^[^\s]*$/.test(formData.username.trim())) {
+      validationCheckErrors.username = true;
       setValidError((prevErrors) => {
         return {
           ...prevErrors,
@@ -57,7 +57,7 @@ const SignUpPage = (props) => {
         };
       });
     } else {
-      validError.username = false;
+      validationCheckErrors.username = false;
       setValidError((prevErrors) => {
         return { ...prevErrors, username: "" };
       });
@@ -67,7 +67,7 @@ const SignUpPage = (props) => {
      if (
       !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(formData.email.trim())
     ) {
-      validError.email = true;
+      validationCheckErrors.email = true;
       setValidError((prevErrors) => {
         return {
           ...prevErrors,
@@ -75,7 +75,7 @@ const SignUpPage = (props) => {
         };
       });
     } else {
-      validError.email = false;
+      validationCheckErrors.email = false;
       setValidError((prevErrors) => {
         return { ...prevErrors, email: "" };
       });
@@ -84,7 +84,7 @@ const SignUpPage = (props) => {
     // validation for password input 
 
     if (formData.password.trim().length < 6) {
-      validError.password = true;
+      validationCheckErrors.password = true;
       setValidError((prevErrors) => {
         return {
           ...prevErrors,
@@ -92,7 +92,7 @@ const SignUpPage = (props) => {
         };
       });
     } else if (!/^[^\s]*$/.test(formData.password.trim())) {
-      validError.password = true;
+      validationCheckErrors.password = true;
       setValidError((prevErrors) => {
         return {
           ...prevErrors,
@@ -100,9 +100,9 @@ const SignUpPage = (props) => {
         };
       });
     } else if (
-      !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(formData.password.trim())
+      !/[!@#$%^&*()_+\-=[\]{};':"\\|,.<>/?]+/.test(formData.password.trim())
     ) {
-      validError.password = true;
+      validationCheckErrors.password = true;
       setValidError((prevErrors) => {
         return {
           ...prevErrors,
@@ -110,7 +110,7 @@ const SignUpPage = (props) => {
         };
       });
     } else {
-      validError.password = false;
+      validationCheckErrors.password = false;
       setValidError((prevErrors) => {
         return { ...prevErrors, password: "" };
       });
@@ -118,24 +118,24 @@ const SignUpPage = (props) => {
 
    // validation for passwordConfirm input 
     if (formData.password.trim() !== formData.passwordConfirm.trim()) {
-      validError.repeatPassword = true;
+      validationCheckErrors.passwordConfirm = true;
       setValidError((prevErrors) => {
         return {
           ...prevErrors,
-          repeatPassword: "Passwords confirm is not the same as password",
+          passwordConfirm: "Passwords confirm is not the same as password",
         };
       });
     } else {
-      validError.repeatPassword = false;
+      validationCheckErrors.repeatPassword = false;
       setValidError((prevErrors) => {
-        return { ...prevErrors, repeatPassword: "" };
+        return { ...prevErrors, passwordConfirm: "" };
       });
     }
     return (
       !validationCheckErrors.username &&
       !validationCheckErrors.email &&
       !validationCheckErrors.password &&
-      !validationCheckErrors.repeatPassword 
+      !validationCheckErrors.passwordConfirm 
     );
  };
 
@@ -153,14 +153,19 @@ const SignUpPage = (props) => {
   };
 
     axios
-      .post("https://akademia108.pl/api/social-app/user/signup",JSON.stringify(newUser))
+      .post("https://akademia108.pl/api/social-app/user/signup", newUser)
       .then((res) => {
         let resData = res.data;
-        console.log(resData)
+   
         if (resData.signedup) {
           setUserValidSignInMessege("Account created");
-
-      
+          setValidSignUp(true);
+         } else {
+            if (resData.message.username) {
+              setUserValidSignInMessege(resData.message.username[0]);
+            } else if (resData.message.email) {
+              setUserValidSignInMessege(resData.message.email[0]);
+            }
     }})
       .catch((err) => {
         console.log("AXIOS ERROR: ", err);
@@ -219,7 +224,12 @@ const SignUpPage = (props) => {
           required
           disabled={validSignUp}
         ></input>
-        <input type="submit" value="SIGN UP" disabled={validSignUp} />
+        <button type="submit" disabled={validSignUp}>SIGN UP </button>
+        {validSignUp && (
+          <div className="form-linked">
+            <Link to="LogInPage" className="btn">Go to LogIn Menu </Link>
+          </div>
+        )}
       </form>
     </div>
   );
