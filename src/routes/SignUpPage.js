@@ -1,6 +1,7 @@
 import React, { useState} from "react";
-import { Navigate, Link } from "react-router-dom";
+import { Navigate, Link, Routes, Route } from "react-router-dom";
 import axios from "axios";
+import LogInPage from "./LogInPage";
 
 const SignUpPage = (props) => {
   const [formData, setFormData] = useState({
@@ -228,6 +229,9 @@ const SignUpPage = (props) => {
         {validSignUp && (
           <div className="form-linked">
             <Link to="LogInPage" className="btn">Go to LogIn Menu </Link>
+            <Routes> 
+                <Route path="LogInPage/*" element={<LogInPage />} />
+            </Routes>
           </div>
         )}
       </form>
