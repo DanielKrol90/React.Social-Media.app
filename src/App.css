@@ -281,3 +281,20 @@ ul {
   position: relative;
   right: -15%;
 }
+
+.popLogin-item {
+  margin: 0 auto;
+  position: relative;
+}
+
+
+.popLogin-item p {
+  text-align: center;
+}
+
+.popLogin-item .btn-timer a {
+    color: red;
+    position: absolute;
+    bottom: 11.7%;
+    right: 40%;
+}

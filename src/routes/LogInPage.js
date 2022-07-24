@@ -25,8 +25,14 @@ const LogInPage = (props) => {
         password: formData.password,
       })
       .then((res) => {
-        props.setUser(res.data);
-        localStorage.setItem("user", JSON.stringify(res.data));
+        
+      
+        if (res.data.error = true) {
+          console.log("uzytkownik nie istnieje")
+        } else {
+          localStorage.setItem("user", JSON.stringify(res.data));
+          props.setUser(res.data);
+        }
       })
       .catch((err) => {
         console.log("AXIOS ERROR: ", err);

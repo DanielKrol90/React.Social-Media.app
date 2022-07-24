@@ -3,10 +3,10 @@ import axios from "axios";
 import AddPost from "../components/AddPost";
 import Post from "../components/Posts";
 import Follow from "../components/Follow";
+import PopLogin from "../components/PopLogin";
 
 const HomePage = (props) => {
   const [posts, setPosts] = useState([]);
-  
 
   useEffect(() => {
     getLatestPosts();
@@ -51,6 +51,7 @@ const HomePage = (props) => {
 
   return (
     <div className="container">
+     {!props.user&&<PopLogin user={props.user} setUser={props.setUser}/>}
       {props.user && (<Follow getLatestPosts={getLatestPosts}/> )}
       {props.user && <AddPost getNewerThenPosts={getNewerThenPosts} />}
       <div className="postBoard">
