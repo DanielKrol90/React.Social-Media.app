@@ -8,7 +8,7 @@ const PopLogin = (props) =>{
     const [popLogIn, setPopLogIn] = useState(false)
 
   useEffect(()=>{
-    const timer = setTimeout(() => setPopLogIn(true), 3000);
+    const timer = setTimeout(() => setPopLogIn(true), 10000);
 
     return () => {
         clearTimeout(timer)

@@ -27,7 +27,7 @@ const LogInPage = (props) => {
       .then((res) => {
         
       
-        if (res.data.error = true) {
+        if (res.data.error) {
           console.log("uzytkownik nie istnieje")
         } else {
           localStorage.setItem("user", JSON.stringify(res.data));

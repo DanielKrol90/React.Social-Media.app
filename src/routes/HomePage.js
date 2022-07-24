@@ -8,10 +8,6 @@ import PopLogin from "../components/PopLogin";
 const HomePage = (props) => {
   const [posts, setPosts] = useState([]);
 
-  useEffect(() => {
-    getLatestPosts();
-  }, [props.user]);
-
   const getLatestPosts = () => {
     axios
       .post("https://akademia108.pl/api/social-app/post/latest")
@@ -48,6 +44,29 @@ const HomePage = (props) => {
         console.log("AXIOS ERROR: ", err);
       });
   };
+
+  const btnForPostDown = document.querySelector('.postBtn');
+  const callback = (checkPosts) => {
+    checkPosts.forEach(checkPost => {
+      if(checkPost.isIntersecting){
+        getOlderPosts()
+      }
+    });
+  }
+  const options ={
+    rootMargin: "0px",
+    threshold: 0.9,
+    delay: 5000,
+  }
+  const observer = new IntersectionObserver(callback, options);
+  
+  if(btnForPostDown)observer.observe(btnForPostDown);
+
+
+  useEffect(() => {
+    getLatestPosts();
+  }, [props.user]);
+
 
   return (
     <div className="container">
