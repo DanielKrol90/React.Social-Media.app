@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
-import { Navigate } from "react-router-dom";
+import { Navigate, Link } from "react-router-dom";
 
 const LogInPage = (props) => {
   const [formData, setFormData] = useState({
@@ -66,10 +66,8 @@ const LogInPage = (props) => {
       </form>
       <p>
         Need a Account? <br />
-        <span className="line">
-          <a href="SignUpPage"> Sign Up!</a>
-        </span>
       </p>
+      <Link className="reg-pop" to="/SignUpPage">Register</Link>
     </div>
   );
 };

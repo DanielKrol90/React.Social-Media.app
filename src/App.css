@@ -104,10 +104,6 @@ border: 3px solid rgb(151, 242, 237);
 border-radius: 10px;
 padding: 6px;
 background-color: rgb(255, 255, 255);
-position: absolute;
-left: 0;
-bottom: 20px;
-
 }
 
 .line a:hover {
@@ -132,6 +128,11 @@ color: rgb(5, 143, 132);
 }
 .loginSign-screen p {
   text-align: center;
+}
+
+.loginIn-screen .reg-pop a {
+  background-color: red;
+ 
 }
 
 input[type="text"], input[type="password"], input[type="submit"], input[type="email"], label {
@@ -276,6 +277,14 @@ ul {
   background-color: #90ffc69b;
 }
 
+.loginIn-screen {
+  position: fixed;
+  top: 25%;
+  right: 50%;
+  transform: translate(50%);
+  z-index: 9999;
+}
+
 .form-linked {
   margin: 20px auto;
   position: relative;
@@ -292,9 +301,3 @@ ul {
   text-align: center;
 }
 
-.popLogin-item .btn-timer a {
-    color: red;
-    position: absolute;
-    bottom: 11.7%;
-    right: 40%;
-}

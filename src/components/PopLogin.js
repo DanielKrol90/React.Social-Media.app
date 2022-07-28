@@ -8,7 +8,7 @@ const PopLogin = (props) =>{
     const [popLogIn, setPopLogIn] = useState(false)
 
   useEffect(()=>{
-    const timer = setTimeout(() => setPopLogIn(true), 10000);
+    const timer = setTimeout(() => setPopLogIn(true), 1000);
 
     return () => {
         clearTimeout(timer)
@@ -22,7 +22,6 @@ const PopLogin = (props) =>{
         <div className="popLogin-item">
             <LogInPage setUser={props.setUser} user={props.user}/>
             <p>If You dont have Account, Register!</p>
-            <div className="btn-timer"><Link to="/SignUpPage">Register</Link></div>
          </div>
         </div>}
       </div>     
