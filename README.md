@@ -1,9 +1,9 @@
 Project - fakecopy of social media
 React Project 
 
-Learning how to work with API (axios), 
-React : how to use Hooks, states, routers, navigate to page, timers,
-Using Local Storage for saving user 
+-Learning how to work with API (axios)
+-React : -how to use Hooks, -states, -routers, -navigate to page, -timers
+-Using Local Storage for saving user 
 
 HomePage: 
 - with not logged in user - after 10s checking if user logged in, if not - show window with LogIn Menu
