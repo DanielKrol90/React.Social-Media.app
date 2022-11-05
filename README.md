@@ -1,6 +1,8 @@
 Project - fakecopy of social media
 React Project 
 
+link: https://freebok-clone.netlify.app/
+
 - Learning how to work with API (axios)
 - React : -how to use Hooks, - states, - routers, - navigate to page, - timers
 - Using Local Storage for saving user 
