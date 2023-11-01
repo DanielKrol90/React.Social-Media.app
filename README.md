@@ -3,7 +3,7 @@ React Project
 
 link: <a href="https://social-media-fake.netlify.app> TO SEE </a>
 
-There is some issue with server, to check use Log : Hans with pass: 123
+There is some issue with server, to check use Log : Kasia with pass: 1234
 In future gonna change the server to use it better without errors.
 
 - Learning how to work with API (axios)
