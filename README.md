@@ -1,7 +1,10 @@
 Project - fakecopy of social media
 React Project 
 
-link: https://freebok-clone.netlify.app/
+link: <a href="https://social-media-fake.netlify.app> TO SEE </a>
+
+There is some issue with server, to check use Log : Hans with pass: 123
+In future gonna change the server to use it better without errors.
 
 - Learning how to work with API (axios)
 - React : -how to use Hooks, - states, - routers, - navigate to page, - timers
