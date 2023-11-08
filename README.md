@@ -1,7 +1,7 @@
 Project - fakecopy of social media
 React Project 
 
-link: <a href="https://social-media-fake.netlify.app> TO SEE </a>
+link: <a href="https://social-media-fake.netlify.app"> TO SEE </a>
 
 There is some issue with server, to check use Log : Kasia with pass: 1234
 In future gonna change the server to use it better without errors.
